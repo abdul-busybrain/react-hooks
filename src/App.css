@@ -109,12 +109,51 @@ main {
   grid-column-gap: 40px;
 }
 
-/* MY STYLES */
-.selected {
-  color: white;
-  background-color: green;
-}
-
+/* My Styles */
 li {
   padding: 0.5rem;
+  list-style-type: none;
+}
+
+.btn {
+  width: 10rem;
+}
+
+.selected {
+  color: var(--dark-text);
+  background-color: var(--page-bg);
+  border: 2px solid var(--dark-text);
+}
+
+.item-header {
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: var(--page-bg);
+}
+
+.bookable-details .item-header + p {
+  background-color: var(--secondary);
+  padding: 10px;
+  margin-bottom: 10px;
+  color: var(--light-text);
+  text-align: left;
+}
+
+.bookable-details .item-details {
+  margin-top: -19px;
+  text-align: left;
+}
+
+.item-details {
+  background-color: var(--secondary);
+  color: var(--light-text);
+  text-align: left;
+}
+
+.bookable-availability {
+  display: flex;
+  gap: 10rem;
 }
