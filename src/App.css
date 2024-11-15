@@ -119,7 +119,7 @@ li {
   width: 10rem;
 }
 
-.selected {
+.select {
   color: var(--dark-text);
   background-color: var(--page-bg);
   border: 2px solid var(--dark-text);

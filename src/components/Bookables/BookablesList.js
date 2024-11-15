@@ -9,10 +9,13 @@ export default function BookablesList() {
   const bookablesInGroup = bookables.filter((b) => b.group === group);
   const [bookableIndex, setBookableIndex] = useState(1);
   const groups = [...new Set(bookables.map((b) => b.group))];
-
   const bookable = bookablesInGroup[bookableIndex];
-
   const [hasDetails, setHasDetails] = useState(false);
+
+  function changeGroup(event) {
+    setGroup(event.target.value);
+    setBookableIndex(0);
+  }
 
   function nextBookable() {
     setBookableIndex((i) => (i + 1) % bookablesInGroup.length);
@@ -21,7 +24,7 @@ export default function BookablesList() {
   return (
     <Fragment>
       <div>
-        <select value={group} onChange={(e) => setGroup(e.target.value)}>
+        <select value={group} onChange={changeGroup}>
           {groups.map((g) => (
             <option value={g} key={g}>
               {g}
@@ -31,9 +34,12 @@ export default function BookablesList() {
 
         <ul className="bookables items-list-nav">
           {bookablesInGroup.map((b, i) => (
-            <li key={b.id} className={``}>
+            <li
+              key={b.id}
+              className={`${i === bookableIndex ? "selected" : null}`}
+            >
               <button
-                className={`btn ${i === bookableIndex ? "selected" : null}`}
+                className={`btn ${i === bookableIndex ? "select" : null}`}
                 onClick={() => setBookableIndex(i)}
               >
                 {b.title}
